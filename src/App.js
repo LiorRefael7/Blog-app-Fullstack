@@ -1,5 +1,4 @@
 import React from 'react';
-import Post from './Post';
 import Navigation from './Navigation';
 import PopularPosts from './PopularPosts';
 import LatestsPosts from './LatestsPost';

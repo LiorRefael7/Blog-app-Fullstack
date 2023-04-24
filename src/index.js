@@ -7,12 +7,18 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import AboutMe from './AboutMe';
+import Navigation from './Navigation';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
   },
+  {
+    path: "/Aboutme",
+    element: <AboutMe />,
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

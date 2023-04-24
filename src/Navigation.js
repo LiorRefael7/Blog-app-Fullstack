@@ -1,15 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 class Navigation extends React.Component {
   render() {
     return (
       <nav>
-        <a href="#">Home</a>
-        <a href="#">About me</a>
-        <a href="#">Contact me</a>
-        <a className="login-link" href="#">
+        <Link to="/">Home</Link>
+        <Link to="/Aboutme">About me</Link>
+        <Link to="#">Contact me</Link>
+        <Link className="login-link" to="#">
           Log in
-        </a>
+        </Link>
       </nav>
     );
   }
