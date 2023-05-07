@@ -6,10 +6,10 @@ class Navigation extends React.Component {
     return (
       <nav>
         <Link to="/">Home</Link>
-        <Link to="/Aboutme">About me</Link>
-        <Link to="#">Contact me</Link>
-        <Link className="login-link" to="#">
-          Log in
+        <Link to="/aboutme">About me</Link>
+        <Link to="/newpost">New Post</Link>
+        <Link className="login-link" to="/login">
+          Login
         </Link>
       </nav>
     );

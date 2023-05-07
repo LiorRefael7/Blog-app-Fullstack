@@ -1,28 +1,26 @@
 import React from 'react';
-import Navigation from './Navigation';
-import PopularPosts from './PopularPosts';
-import LatestsPosts from './LatestsPost';
+import Navigation from './components/Navigation';
+import Home from './components/Home';
+import AboutMe from './components/AboutMe';
+import NewPost from './components/NewPost'
+import PostPage from './components/PostPage'
+import Login from './components/Login'
 import './style.css';
-import PostsList from './PostsList';
+import { Route, Routes } from 'react-router-dom';
 
 
 function App() {
   return (
-    <div className="container">
-      <header>
-        <h1>This is my blog</h1>
-      </header>
+    <div>
       <Navigation />
-      <div className="main-content">
-        <div className="left-section">
-          <div className="posts">
-            <PostsList />
-          </div>
-        </div>
-        <div className="right-section">
-          <LatestsPosts latestText="Latest post text goes here" />
-          <PopularPosts popularText="Popular post text goes here" />
-        </div>
+      <div className='app-body'>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/aboutme" element={<AboutMe />} />
+          <Route path="/newpost" element={<NewPost />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/post/:id" element={<PostPage />} />
+        </Routes>
       </div>
     </div>
   );
