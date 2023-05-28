@@ -6,7 +6,7 @@ class Navigation extends React.Component {
     return (
       <nav>
         <Link to="/">Home</Link>
-        <Link to="/aboutme">About me</Link>
+        <Link to="/postspage">Posts</Link>
         <Link to="/newpost">New Post</Link>
         <Link className="login-link" to="/login">
           Login

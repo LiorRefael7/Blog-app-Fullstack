@@ -1,5 +1,5 @@
 import React from 'react';
-
+import axios from 'axios';
 class NewPost extends React.Component {
   constructor(props) {
     super(props);
@@ -9,7 +9,6 @@ class NewPost extends React.Component {
     };
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleTextChange = this.handleTextChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleTitleChange(event) {
@@ -20,15 +19,25 @@ class NewPost extends React.Component {
     this.setState({ text: event.target.value });
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-    const newPost = {
+  addPost = (e) => {
+    const url = "http://127.0.0.1:5000/newpost"
+    const data = {
       title: this.state.title,
-      text: this.state.text,
-      date: new Date().toLocaleString(),
-    };
-    this.props.addPost(newPost);
-    this.setState({ title: '', text: '' });
+      text: this.state.text
+    }
+    axios.post(url, data)
+    .then((res) => {
+      this.setState({
+        data: [],
+        resp: "Success, great new city added!"
+      });
+    })
+      .catch((err) => {
+        this.setState({
+          data: null,
+          resp: "Error: something went wrong, try another city."
+        });
+      });
   }
 
   render() {
@@ -53,7 +62,7 @@ class NewPost extends React.Component {
               style={{width:'100%',height:'200px',resize:'vertical'}}
             />
           </div>
-          <button type="submit">Submit</button>
+          <button onClick={this.addPost}>Add Post</button>
         </form>
       </div>
     );
